@@ -94,7 +94,7 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation "androidx.annotation:annotation:$androidxAnnotationVersion"
     implementation "com.google.guava:guava:$guavaVersion"
 
@@ -117,7 +117,7 @@ dependencies {
 
 
     // Also declare the dependency for the Google Play services library and specify its version
-    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
     // Core library
     androidTestImplementation "androidx.test:core:$coreVersion"
