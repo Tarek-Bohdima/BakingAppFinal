@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "702307673747",
+    "firebase_url": "https://bakingapp-3a491-default-rtdb.firebaseio.com",
+    "project_id": "bakingapp-3a491",
+    "storage_bucket": "bakingapp-3a491.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702307673747:android:bd20d859a24f4fe536cf66",
+        "android_client_info": {
+          "package_name": "com.example.bakingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702307673747-r4mvgqk20fkgtr10tbfn132r020kl7s8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bakingapp",
+            "certificate_hash": "8e2cf59cdcdecbf0bb551d31d201d31b1c2221a8"
+          }
+        },
+        {
+          "client_id": "702307673747-55rlk386vfs6q5hegpke9f09e5eadvge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDChAREdFcBILwOrFQQ9jHoiMT4wzTfkDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702307673747-55rlk386vfs6q5hegpke9f09e5eadvge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
