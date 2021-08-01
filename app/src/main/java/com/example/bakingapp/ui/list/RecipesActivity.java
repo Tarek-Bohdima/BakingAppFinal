@@ -59,15 +59,22 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -89,12 +96,9 @@ public class RecipesActivity extends AppCompatActivity implements RecipesAdapter
     private static final int RC_SIGN_IN = 1;
 
     private String username;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference messagesDatabaseReference;
-    private ChildEventListener childEventListener;
+    private DatabaseReference recipesDatabaseReference;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private FirebaseStorage firebaseStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,10 +111,10 @@ public class RecipesActivity extends AppCompatActivity implements RecipesAdapter
         RecipeViewModel recipeViewModel = new ViewModelProvider(this).get(RecipeViewModel.class);
 
         this.username = ANONYMOUS;
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseStorage = FirebaseStorage.getInstance();
 
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        recipesDatabaseReference = firebaseDatabase.getReference("recipes");
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -140,19 +144,38 @@ public class RecipesActivity extends AppCompatActivity implements RecipesAdapter
         setupRecyclerView();
         recipeViewModel.getRecipesList().observe(this,
                 recipesData -> {
-                    recipesAdapter.setData(recipesData);
+//                    recipesAdapter.setData(recipesData);
                     EspressoIdlingResource.decrement();
                 });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recipesDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+
+                List<Recipes> recipesList1 = new ArrayList<Recipes>();
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    recipesList1.add(child.getValue(Recipes.class));
+                }
+                recipesAdapter.setData(recipesList1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+
     private void onSignedInInitialize(String userName) {
         this.username = userName;
-//        attachedDatabaseReadListener();
     }
 
     private void onSignedOutCleanup() {
         this.username = ANONYMOUS;
-//        mMessageAdapter.clear();
     }
 
     @Override
@@ -166,7 +189,6 @@ public class RecipesActivity extends AppCompatActivity implements RecipesAdapter
                 Toast.makeText(this, "Sign in Cancelled", Toast.LENGTH_SHORT).show();
                 finish();
             }
-
         }
     }
 
@@ -183,8 +205,6 @@ public class RecipesActivity extends AppCompatActivity implements RecipesAdapter
         if (authStateListener != null) {
             firebaseAuth.removeAuthStateListener(authStateListener);
         }
-//        detachDatabaseReadListener();
-//        mMessageAdapter.clear();
     }
 
     @Override

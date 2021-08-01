@@ -47,12 +47,15 @@ public class Recipes implements Parcelable {
             return new Recipes[size];
         }
     };
-    private final ArrayList<Ingredients> ingredients;
-    private final ArrayList<Steps> steps;
-    private final int servings;
+    private ArrayList<Ingredients> ingredients;
+    private ArrayList<Steps> steps;
+    private int servings;
     private int id;
     private String name;
     private String image;
+
+    // Needed for Firebase
+    public Recipes() {}
 
     protected Recipes(Parcel in) {
         id = in.readInt();

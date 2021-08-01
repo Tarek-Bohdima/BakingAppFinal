@@ -46,11 +46,13 @@ public class Steps implements Parcelable {
             return new Steps[size];
         }
     };
-    private final String shortDescription;
-    private final String description;
-    private final String videoURL;
-    private final String thumbnailURL;
+    private String shortDescription;
+    private String description;
+    private String videoURL;
+    private String thumbnailURL;
     private int id;
+
+    public Steps() {}
 
     protected Steps(Parcel in) {
         id = in.readInt();

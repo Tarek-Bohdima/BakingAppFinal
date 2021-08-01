@@ -53,6 +53,7 @@ public class Ingredients implements Parcelable {
     private String ingredient;
     private List<Ingredients> ingredientsList = new ArrayList<>();
 
+    public Ingredients() {}
     protected Ingredients(Parcel in) {
         quantity = in.readDouble();
         measure = in.readString();

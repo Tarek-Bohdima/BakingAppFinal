@@ -37,6 +37,7 @@ import com.example.bakingapp.di.ContextModule;
 import com.example.bakingapp.di.DaggerBakingComponent;
 import com.example.bakingapp.di.PreferencesModule;
 import com.example.bakingapp.di.RetrofitModule;
+import com.google.firebase.database.FirebaseDatabase;
 
 import timber.log.Timber;
 
@@ -49,6 +50,7 @@ public class BaseApplication  extends Application {
         super.onCreate();
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         }
 
         bakingComponent = DaggerBakingComponent.builder()
