@@ -30,7 +30,7 @@
   -->
 
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="com.example.bakingapp.widget.RecipesWidgetConfigureActivity"
+    android:configure="com.tarekbohdima.bakingapp.widget.RecipesWidgetConfigureActivity"
     android:initialLayout="@layout/widget_recipes"
     android:minWidth="250dp"
     android:minHeight="180dp"

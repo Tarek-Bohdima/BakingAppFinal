@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:702307673747:android:bd20d859a24f4fe536cf66",
+        "mobilesdk_app_id": "1:702307673747:android:c042673b44cbac4836cf66",
         "android_client_info": {
-          "package_name": "com.example.bakingapp"
+          "package_name": "com.tarekbohdima.bakingapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "702307673747-r4mvgqk20fkgtr10tbfn132r020kl7s8.apps.googleusercontent.com",
+          "client_id": "702307673747-28k676lc73tcun7g7a8foqu3n9rcpvq5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.bakingapp",
+            "package_name": "com.tarekbohdima.bakingapp",
             "certificate_hash": "8e2cf59cdcdecbf0bb551d31d201d31b1c2221a8"
           }
         },

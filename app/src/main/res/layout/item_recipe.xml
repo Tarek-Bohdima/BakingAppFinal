@@ -36,7 +36,7 @@
 
         <variable
             name="recipe"
-            type="com.example.bakingapp.model.Recipes" />
+            type="com.tarekbohdima.bakingapp.model.Recipes" />
     </data>
 
 

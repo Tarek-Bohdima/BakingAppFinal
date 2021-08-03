@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bakingapp">
+    package="com.tarekbohdima.bakingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".BaseApplication"
+        android:name="com.tarekbohdima.bakingapp.BaseApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BakingApp">
-        <receiver android:name=".widget.RecipesWidgetProvider">
+        <receiver android:name="com.tarekbohdima.bakingapp.widget.RecipesWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -24,13 +24,13 @@
                 android:resource="@xml/recipes_widget_info" />
         </receiver>
 
-        <activity android:name=".widget.RecipesWidgetConfigureActivity">
+        <activity android:name="com.tarekbohdima.bakingapp.widget.RecipesWidgetConfigureActivity">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.list.RecipesActivity"
+            android:name="com.tarekbohdima.bakingapp.ui.list.RecipesActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.BakingApp.NoActionBar">
             <intent-filter>
@@ -40,17 +40,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.detail.RecipeDetailActivity"
+            android:name="com.tarekbohdima.bakingapp.ui.detail.RecipeDetailActivity"
             android:label="@string/title_recipe_detail"
-            android:parentActivityName=".ui.list.RecipesActivity"
+            android:parentActivityName="com.tarekbohdima.bakingapp.ui.list.RecipesActivity"
             android:theme="@style/Theme.BakingApp.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.bakingapp.ui.list.RecipesActivity" />
+                android:value="com.tarekbohdima.bakingapp.ui.list.RecipesActivity" />
         </activity>
 
         <service
-            android:name=".widget.RecipeWidgetService"
+            android:name="com.tarekbohdima.bakingapp.widget.RecipeWidgetService"
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>

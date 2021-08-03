@@ -37,7 +37,7 @@
 
         <variable
             name="ingredients"
-            type="com.example.bakingapp.model.Ingredients" />
+            type="com.tarekbohdima.bakingapp.model.Ingredients" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
